@@ -22,6 +22,8 @@ This is an experimental V1 implementation, not a release-ready product. The prot
 
 The project [`SKILL.md`](SKILL.md) is a source document in this checkout. It is **not installed** into Codex or another agent. The Codex integration here is a project-local hook configuration in [`.codex/hooks.json`](.codex/hooks.json); it does not edit `~/.codex`.
 
+For a plain-language, detailed explanation of what the project runtime and agent skill do, see the [Arabic project guide](PROJECT_GUIDE_AR.md).
+
 ## How it fits together
 
 ```text
