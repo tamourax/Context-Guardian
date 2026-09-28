@@ -78,13 +78,15 @@ The first milestone is not a token-savings claim. It is protocol correctness: pr
 
 ## 8. Initial implementation gate results — 2026-09-28
 
-- Deterministic protocol, storage, transaction, and CLI suite: **24 tests passed**.
+- Deterministic protocol, storage, transaction, CLI, and Codex adapter suite: **29 tests passed**.
 - Protected-item rejection, explicit transaction confirmation, stale-plan rejection, snapshot verification, rollback, and rollback conflict protection: **passed**.
 - Integrity behavior for complete, partial, empty, and structured critical-state packages: **passed**.
 - Static audit for Guardian network-client imports: **passed**. Packet-level network capture remains required before a packaged release.
-- Claude Code executable/version probe: **passed** (`2.1.274`).
-- Real `PreCompact` callback observation: **blocked**; no such hook group is configured in this environment.
-- Real `SessionStart(compact)` callback observation: **blocked**; an unrelated event group exists, but no Guardian callback is configured and no event was observed.
-- Post-transition state package from the adapter: **unsupported**. Manual state packages can be checked with the integrity CLI.
-- Automatic compaction and event-driven integrity release gate: **blocked and disabled**. No synthetic lifecycle event was used to mark it passed.
-- Model-dependent task-completion pilot: **not run**; this build provides the protocol/core and manual workflow, not an enabled event-driven agent integration.
+- Codex CLI executable/version probe: **passed** (`0.151.0`); the CLI reports the `hooks` feature enabled.
+- Project-local `SessionStart`, `PreCompact`, and `PostCompact` configuration: **present and structurally valid** in `.codex/hooks.json`; this does not establish that the hooks are trusted or run.
+- Codex hook trust review: **pending user review in Codex**. No user-level Codex settings or skill installation were changed.
+- Real `SessionStart`, `PreCompact`, and `PostCompact` callback observation: **blocked/not observed**. No synthetic lifecycle event was used to mark these gates passed.
+- Post-transition state package from the Codex hooks: **unsupported**. Manual state packages can be checked with the integrity CLI.
+- Automatic compaction and event-driven integrity release gate: **blocked and disabled** until real events and supplied state evidence are validated.
+- Codex CLI diagnostic: **warning/failure** for Windows sandbox provisioning; live hook execution must be checked in the user's Codex session.
+- Model-dependent task-completion pilot: **not run**. Packet-level privacy capture is also still required.

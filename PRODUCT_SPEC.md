@@ -75,7 +75,7 @@ Guardian manages its own context records and recovery packages. It does not clai
 
 ## Open decisions
 
-- Confirm the reference adapter after the capability spike; Claude Code is a candidate, not yet a validated integration.
+- Codex CLI is the selected reference adapter; confirm live hook behavior before treating the adapter as release-validated.
 - Define supported minimum agent versions from observed hook behavior.
 - Select the V1 token estimator and record its accuracy limits.
 - Decide whether checkpoint contents are encrypted at rest in the first release.
