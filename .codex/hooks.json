@@ -1,0 +1,44 @@
+{
+  "description": "Project-local Context Guardian lifecycle observation hooks.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python cg.py adapter hook codex --project .",
+            "timeout": 3,
+            "statusMessage": "Recording Context Guardian session start"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python cg.py adapter hook codex --project .",
+            "timeout": 3,
+            "statusMessage": "Checkpointing Guardian-managed context"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python cg.py adapter hook codex --project .",
+            "timeout": 3,
+            "statusMessage": "Recording Codex compaction event"
+          }
+        ]
+      }
+    ]
+  }
+}
